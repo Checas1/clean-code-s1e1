@@ -102,7 +102,7 @@
 }
 
 /* New Task */
-.block__new-headline {
+.block__headline-new {
   display: block;
   margin: 0 0 20px;
 }

@@ -4,6 +4,7 @@
     <title>Todo App</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./time.png">
   </head>
   <body class="body">
     <header class="header">
@@ -13,16 +14,16 @@
     <main class="block">
       <section class="block__section">
         <div class="block__container">
-          <label class="block__headline block__label block__new-headline" for="new-task">Add Item</label>
+          <label class="block__headline block__label block__headline-new" for="new-task">Add Item</label>
           <div class="block__wrap">
             <input class="block__new-input block__input block__text block__task" id="new-task" type="text">
-            <button class="block__button">Add</button>
+            <button class="block__button block__button-add">Add</button>
           </div>
         </div>
       </section>
       <section class="block__section">
         <h3 class="block__headline">Todo</h3>
-        <ul class="block__items" id="incompleted-tasks">
+        <ul class="block__items incompleted-tasks">
           <li class="block__item">
             <input class="block__checkbox block__input" type="checkbox">
             <label class="block__label block__task">Pay Bills</label>
@@ -45,7 +46,7 @@
       </section>
       <section class="block__section">
         <h3 class="block__headline">Completed</h3>
-        <ul class="block__items block__completed" id="completed-tasks">
+        <ul class="block__items block__completed completed-tasks">
           <li class="block__item">
             <input class="block__input block__checkbox" type="checkbox" checked>
             <label class="block__label block__task">See the Doctor</label>

@@ -7,15 +7,15 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.getElementById("new-task"); //Add a new task.
-var addButton = document.getElementsByTagName("button")[0]; //first button
-var incompleteTaskHolder = document.getElementById("incompleted-tasks"); //ul of #incompletetasks
-var completedTasksHolder = document.getElementById("completed-tasks"); //completed-tasks
+var taskInput = document.querySelector(".block__new-input"); //Add a new task.
+var addButton = document.querySelector(".block__button-add"); //first button
+var incompleteTaskHolder = document.querySelector(".incompleted-tasks") //ul of #incompletetasks
+var completedTasksHolder = document.querySelector(".completed-tasks"); //completed-tasks
 
 //New task list item
 var createNewTaskElement = function (taskString) {
   var listItem = document.createElement("li");
-
+  listItem.className = "block__item";
   //input (checkbox)
   var checkBox = document.createElement("input"); //checkbox
   //label
@@ -29,23 +29,20 @@ var createNewTaskElement = function (taskString) {
   var deleteButton = document.createElement("button"); //delete button
   var deleteButtonImg = document.createElement("img"); //delete button image
 
-  listItem.className = "block__item";
-
   label.innerText = taskString;
   label.className = "block__task block__label";
 
   //Each elements, needs appending
   checkBox.type = "checkbox";
   checkBox.className = "block__checkbox block__input";
+  editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
+  editButton.className = "block__change block__button";
   editInput.type = "text";
   editInput.className = "block__input block__text block__task";
 
-  editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className = "block__change block__button";
-
   deleteButton.className = "block__remove block__button";
-  deleteButtonImg.src = "./remove.svg";
   deleteButtonImg.alt = "remove task";
+  deleteButtonImg.src = "./remove.svg";
   deleteButtonImg.className = "block__btn-picture";
   deleteButton.appendChild(deleteButtonImg);
 
@@ -63,11 +60,9 @@ var addTask = function () {
   //Create a new list item with the text from the #new-task:
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
-
   //Append listItem to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-
   taskInput.value = "";
 };
 
@@ -78,7 +73,6 @@ var editTask = function () {
   console.log("Change 'edit' to 'save'");
 
   var listItem = this.parentNode;
-
   var editInput = listItem.querySelector(".block__text");
   var label = listItem.querySelector(".block__label");
   var editBtn = listItem.querySelector(".block__change");
